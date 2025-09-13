@@ -1,98 +1,78 @@
+Projets de Réseaux de Neurones : Applications PMC et CNN
+Ce dépôt contient deux projets d'apprentissage automatique démontrant l'entraînement, l'optimisation et la comparaison de réseaux de neurones pour des tâches de classification sur des données tabulaires et des images.
+Technologies et Bibliothèques :
+Langage : Python
+Analyse de Données : Pandas, NumPy
+Machine Learning : Scikit-Learn
+Deep Learning : TensorFlow, Keras
+Visualisation : Matplotlib
+📂 Structure du Dépôt
+code
+Code
 .
-├── ReseauxN_Partie1_GuyJuniorCalvet.ipynb   # Notebook pour l'entraînement du PMC
-├── ReseauxN_Partie2_GuyJuniorCalvet.ipynb   # Notebook pour l'entraînement des CNN
-├── Customer.csv                           # Jeu de données pour la Partie 1
-└── README.md                              # Ce fichier```
-
----
-
-##  PARTIE 1 : Perceptron Multi-Couches (PMC) pour la Vente en Ligne
-
-### 🎯 Objectif
-
-Analyser des données clients (`Customer.csv`) pour entraîner un Perceptron Multi-Couches capable de prédire le niveau de revenu. Deux classifieurs ont été développés :
-*   Un **classifieur binaire** (revenu élevé vs. non élevé).
-*   Un **classifieur multi-classes** (revenu faible, moyen, élevé).
-
-### 🛠️ Tâches Réalisées
-
-*   **Prétraitement des données** : Nettoyage et encodage des variables catégorielles.
-*   **Recherche d'Architecture** : Détermination du nombre optimal de couches cachées et de neurones.
-*   **Validation Croisée** : Entraînement et évaluation robuste du modèle (k=3).
-*   **Analyse de Performance** : Mesure des métriques (précision, rappel, F1-Score) et analyse des matrices de confusion.
-*   **Courbe d'Apprentissage** : Vérification du sur-ajustement et du sous-ajustement.
-*   **Optimisation des Hyperparamètres** : Utilisation de `RandomizedSearchCV` pour trouver la meilleure configuration.
-*   **Comparaison** : Évaluation des performances du PMC par rapport à un modèle d'Arbre de Décision du devoir précédent.
-
-### 📊 Résultats Clés
-
-Le **Perceptron Multi-Couches** s'est avéré largement supérieur au modèle d'Arbre de Décision du devoir #2, en particulier pour la classification multi-classes où il a réussi à équilibrer les prédictions entre les différentes classes, contrairement à l'arbre qui présentait un fort biais.
-
-| Modèle | Exactitude (Accuracy) | F1-Score (Pondéré) | Bilan |
-| :--- | :---: | :---: | :--- |
-| Arbre de Décision | 51% | 0.34 | Très déséquilibré, ignore les classes minoritaires. |
-| **PMC (MLPClassifier)** | **70%** | **0.70** | **Performances équilibrées et nettement supérieures.** |
-
----
-
-## PARTIE 2 : Réseaux de Neurones à Convolution (CNN) pour la Classification d'Images
-
-### 🎯 Objectif
-
-Classifier les images du jeu de données **Fashion-MNIST** en utilisant des architectures de réseaux de neurones de plus en plus complexes et performantes.
-
-### 🛠️ Tâches Réalisées
-
-1.  **Modèle de Référence (PMC)** : Exécution d'un Perceptron Multi-Couches de base avec Keras pour établir une performance de référence.
-2.  **CNN Personnalisé** : Implémentation d'un Réseau de Neurones à Convolution pour améliorer la précision.
-3.  **CNN avec Augmentation de Données** : Utilisation de `ImageDataGenerator` pour créer de nouvelles images d'entraînement (rotations, zooms, etc.) afin de lutter contre le sur-apprentissage et d'améliorer la généralisation.
-4.  **Apprentissage par Transfert** : Utilisation du modèle pré-entraîné **VGG16** pour tirer parti de ses couches de convolution déjà optimisées sur un grand volume d'images.
-
-### 📊 Résultats Comparatifs
-
-Une analyse comparative des quatre modèles a été menée en se basant sur la précision finale sur l'ensemble de test et le temps d'entraînement.
-
-| Modèle | Exactitude (Accuracy) | Temps d'entraînement (secondes) | Analyse |
-| :--- | :---: | :---: | :--- |
-| PMC (Keras) | 88.86% | 161.22 | Rapide mais moins précis que les CNN. |
-| **CNN Personnalisé** | **93.12%** | 2630.80 | **Meilleur compromis performance/temps.** |
-| CNN + Augmentation | 91.37% | 2994.18 | Efficace contre le sur-apprentissage, mais légère baisse de précision. |
-| VGG16 (Transfert) | 87.61% | 14458.45 | Moins performant et beaucoup plus long, probablement surdimensionné pour ce jeu de données. |
-
-Le **CNN personnalisé (2.2.2)** s'est révélé être le modèle le plus performant pour cette tâche.
-
-## 🚀 Comment Exécuter
-
-### Prérequis
-
-*   Python 3.x
-*   Jupyter Notebook ou JupyterLab
-*   Bibliothèques listées dans `requirements.txt`
-
-### Installation
-
-1.  Clonez le dépôt :
-    ```bash
-    git clone [URL_DU_DEPOT]
-    cd [NOM_DU_DEPOT]
-    ```2.  (Optionnel mais recommandé) Créez un environnement virtuel :
-    ```bash
-    python -m venv env
-    source env/bin/activate  # Sur Windows: env\Scripts\activate
-    ```
-3.  Installez les dépendances :
-    ```bash
-    pip install -r requirements.txt
-    ```
-    *Note : Si vous n'avez pas de fichier `requirements.txt`, vous pouvez installer les bibliothèques manuellement :*
-    ```bash
-    pip install pandas numpy scikit-learn matplotlib tensorflow
-    ```
-
-### Lancement
-
-1.  Démarrez Jupyter Notebook :
-    ```bash
-    jupyter notebook
-    ```
-2.  Ouvrez et exécutez les cellules des notebooks `Devoir3_Partie1_GuyJuniorCalvet.ipynb` et `Devoir3_Partie2_GuyJuniorCalvet.ipynb`. Assurez-vous que le fichier `Customer.csv` est dans le même répertoire que le notebook de la partie 1.
+├── Projet_1_PMC_Prediction_Revenu/
+│   ├── ReseauxN_Partie1_PMC.ipynb          # Notebook pour l'entraînement du PMC
+│   └── Customer.csv                      # Jeu de données
+│
+├── Projet_2_CNN_Classification_Image/
+│   └── ReseauxN_Partie2_CNN.ipynb          # Notebook pour l'entraînement des CNN
+│
+└── README.md                                 # Ce fichier
+📈 Projet 1 : Prédiction de Revenu Client avec un Perceptron Multi-Couches (PMC)
+Objectif du Projet
+Développer un modèle capable de classifier les clients en différentes catégories de revenus à partir de leurs données comportementales (âge, genre, pays, activité sur le site). Ce projet explore la mise en œuvre d'un classifieur pour des applications commerciales comme le ciblage marketing ou la segmentation client.
+Démarche et Techniques Mises en Œuvre
+Prétraitement des Données : Nettoyage, gestion des valeurs manquantes et encodage des variables catégorielles avec LabelEncoder.
+Ingénierie des Caractéristiques : Création de variables cibles pour deux scénarios :
+Classification Binaire : Revenu supérieur ou inférieur à la moyenne.
+Classification Multi-Classes : Revenu faible, moyen ou élevé, basé sur les quartiles.
+Entraînement et Optimisation : Utilisation de MLPClassifier de Scikit-Learn pour entraîner les modèles. La meilleure architecture a été identifiée grâce à RandomizedSearchCV pour optimiser les hyperparamètres (nombre de couches, neurones, fonction d'activation, etc.).
+Évaluation Rigoureuse :
+Application de la validation croisée pour assurer la robustesse du modèle.
+Analyse des performances via des métriques clés (précision, rappel, F1-score) et des matrices de confusion.
+Analyse des courbes d'apprentissage pour diagnostiquer le sur-apprentissage.
+Résultats
+Le PMC optimisé a atteint une précision de 70% sur la tâche de classification multi-classes, démontrant une capacité à prédire de manière équilibrée toutes les catégories de revenus, y compris les classes minoritaires.
+🖼️ Projet 2 : Classification d'Images avec des Réseaux de Neurones à Convolution (CNN)
+Objectif du Projet
+Ce projet explore et compare plusieurs architectures de deep learning pour la classification d'images sur le jeu de données Fashion-MNIST. L'objectif était de démontrer l'efficacité croissante des modèles, depuis un réseau de neurones dense simple jusqu'à des techniques avancées comme l'apprentissage par transfert.
+Modèles Développés et Techniques Explorées
+Modèle de Référence (PMC) : Un Perceptron Multi-Couches de base a été implémenté avec Keras pour établir une performance de référence.
+CNN Personnalisé : Conception et entraînement d'un Réseau de Neurones à Convolution (CNN) incluant des couches de convolution, de pooling, de normalisation par lots (BatchNormalization) et de régularisation (Dropout).
+CNN avec Augmentation de Données : Pour améliorer la généralisation et réduire le sur-apprentissage, la technique d'augmentation de données a été appliquée en utilisant ImageDataGenerator de Keras, créant ainsi des variations synthétiques des images d'entraînement (rotations, zooms, décalages).
+Apprentissage par Transfert (Transfer Learning) : Utilisation du modèle pré-entraîné VGG16 comme extracteur de caractéristiques fixes, en y ajoutant des couches denses personnalisées pour la classification finale.
+Analyse Comparative des Performances
+Modèle	Exactitude (Test)	Temps d'entraînement (sec)	Analyse
+PMC (Keras)	88.86%	161	Rapide mais moins performant que les architectures CNN.
+CNN Personnalisé	93.12%	2631	Meilleur équilibre entre une haute précision et un temps d'entraînement raisonnable.
+CNN + Augmentation	91.37%	2994	A réduit le sur-apprentissage mais a légèrement diminué la précision finale.
+VGG16 (Transfert)	87.61%	14458	Le modèle le plus long à entraîner, probablement surdimensionné pour la complexité de Fashion-MNIST.
+Conclusion
+Le CNN personnalisé s'est révélé être l'approche la plus efficace pour ce problème, offrant la meilleure précision tout en restant efficient en termes de temps de calcul.
+🚀 Comment Exécuter
+Prérequis
+Python 3.8+
+Jupyter Notebook ou un IDE compatible (ex: VS Code)
+Installation
+Clonez le dépôt sur votre machine locale :
+code
+Bash
+git clone [URL_DU_DEPOT]
+cd [NOM_DU_DEPOT]
+Il est recommandé de créer un environnement virtuel :
+code
+Bash
+python -m venv env
+source env/bin/activate  # Sur Windows: env\Scripts\activate
+Installez les bibliothèques nécessaires :
+code
+Bash
+pip install pandas numpy scikit-learn matplotlib tensorflow
+Lancement
+Démarrez le serveur Jupyter :
+code
+Bash
+jupyter notebook
+Ouvrez et exécutez les notebooks situés dans leurs dossiers respectifs :
+Projet_1_PMC_Prediction_Revenu/ReseauxN_Partie1_PMC.ipynb
+Projet_2_CNN_Classification_Image/ReseauxN_Partie2_CNN.ipynb
