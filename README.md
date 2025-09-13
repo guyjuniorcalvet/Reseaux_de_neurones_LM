@@ -1,6 +1,6 @@
 .
-├── Devoir3_Partie1_GuyJuniorCalvet.ipynb   # Notebook pour l'entraînement du PMC
-├── Devoir3_Partie2_GuyJuniorCalvet.ipynb   # Notebook pour l'entraînement des CNN
+├── ReseauxN_Partie1_GuyJuniorCalvet.ipynb   # Notebook pour l'entraînement du PMC
+├── ReseauxN_Partie2_GuyJuniorCalvet.ipynb   # Notebook pour l'entraînement des CNN
 ├── Customer.csv                           # Jeu de données pour la Partie 1
 └── README.md                              # Ce fichier```
 
